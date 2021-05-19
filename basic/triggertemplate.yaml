@@ -37,10 +37,11 @@ spec:
       workspaces:
           - name: pipeline-ws
             volumeClaimTemplate:
-              resources:
-                requests:
-                  storage:  5Gi
-              volumeMode: Filesystem
-              accessModes:
-                - ReadWriteOnce
+              spec:
+                resources:
+                  requests:
+                    storage:  5Gi
+                volumeMode: Filesystem
+                accessModes:
+                  - ReadWriteOnce
 
