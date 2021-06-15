@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task
+spec:
+  params:
+    - name: header
+      description: The event header
+    - name: body
+      description: The event body
+  steps:
+  - name: print-event
+    env:
+      - name: HEADER
+        value: $(params.header)
+      - name: BODY
+        value: $(params.body)
+    image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.0
+    script: |
+      #!/usr/bin/env bash
+      printf "Tue Jun 15 00:17:56 UTC 2021 -- random stuff -- "
+      echo TL\!9Fm\&SpkfyLmezs6A\!D\\3kBO v\?k\$\<\}/\"tfw=\]0p\!s,fU,0R,y\)tIq\~0\~6Y4N1U\^\$3TKD\&\<db%wJ\"2\;\"jVA/\#Pw\#_ 3\{\}\`K_.0C/C6\?2U\)go P\`KVQ:U_\;b=\}6Wv,m\;\}\#ij::qg6uxf\`h%\)+B7A4\#U/@z\)\>-y@h\[A\\\'kx.E=qg4KyUUn\^zS\\ -@%\}2S5\>k\"UOw@8g\;1Gv7\#,kNS\>rc\|yhMEKO,4WM\'KFA/wPBu2\$\?V
+      sleep 10
+      printf "Tue Jun 15 00:18:06 UTC 2021 -- random stuff -- "
+      echo J2\|XU:M82H\"O\(\?9vnIfPY27v\]\)lTyYc\( \?xp\'YFvoj0e3f S0\<\{F\}x\*f\}Qv\^Vk7\`6-L:Oo0\!\#FP\$\}w7/i
+
