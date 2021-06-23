@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipeline
+spec:
+  params:
+    - name: header
+      description: The event header
+    - name: body
+      description: The event body
+  workspaces:
+    - name: pipeline-ws
+  tasks:
+    - name: pipeline-task
+      taskRef:
+        name: task
+      workspaces:
+      - name: pipeline
+        workspace: pipeline-ws
