@@ -16,9 +16,6 @@ spec:
       echo "check if /workspace/toolchain.json is available in docker daemon"
       docker run --mount type=bind,source=/workspace,target=/workspace alpine cat /etc/os-release && cat /workspace/toolchain.json
     volumeMounts:
-    - name: toolchain
-      mountPath: "/workspace/toolchain.json"
-      subPath: toolchain.json
     - name: docker-socket
       mountPath: /var/run/
   sidecars:
