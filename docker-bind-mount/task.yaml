@@ -10,8 +10,10 @@ spec:
     image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.0
     script: |
       #!/usr/bin/env bash
+      sleep 20
       echo "check if /workspace/toolchain.json is available locally"
       cat /workspace/toolchain.json || echo "Oh no... (expected)"
+      docker info
 
       echo "check if /workspace/toolchain.json is available in docker daemon"
       docker run --mount type=bind,source=/workspace,target=/workspace alpine sh -c "cat /etc/os-release && cat /workspace/toolchain.json"
