@@ -25,7 +25,8 @@ spec:
       privileged: true
     command: ["sh", "/workspace/scripts/dockerd-entrypoint.sh"]
     startupProbe:
-      exec: ["docker", "stats", "--no-stream"]
+      exec:
+        command: ["docker", "stats", "--no-stream"]
     volumeMounts:
     - mountPath: /var/run/
       name: docker-socket
