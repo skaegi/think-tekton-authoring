@@ -10,6 +10,7 @@ spec:
     image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.0
     script: |
       #!/usr/bin/env bash
+      sleep 120
       echo "check if /workspace/toolchain.json is available locally"
       cat /workspace/toolchain.json || echo "Oh no... (expected)"
 
