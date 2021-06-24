@@ -12,7 +12,7 @@ spec:
       cat /workspace/toolchain.json || echo "Oh no... (expected)"
 
       echo "check if /workspace/toolchain.json is available in docker daemon"
-      until docker stats --no-stream > /dev/null 2>&1; printf "." && sleep 1; done
+      until docker stats --no-stream > /dev/null 2>&1; do printf "." && sleep 1; done
       docker run --mount type=bind,source=/workspace,target=/workspace alpine sh -c "cat /etc/os-release && cat /workspace/toolchain.json"
     volumeMounts:
     - name: docker-socket
