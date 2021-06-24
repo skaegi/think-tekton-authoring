@@ -25,6 +25,8 @@ spec:
       privileged: true
     command: ["sh", "/workspace/scripts/dockerd-entrypoint.sh"]
     startupProbe:
+      periodSeconds: 1
+      failureThreshold: 100
       exec:
         command: ["docker", "stats", "--no-stream"]
     volumeMounts:
