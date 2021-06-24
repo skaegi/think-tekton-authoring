@@ -34,8 +34,4 @@ spec:
       podTemplate:
         imagePullSecrets:
         - name: pipeline-pullsecret
-      workspaces:
-          - name: pipeline-ws
-            persistentVolumeClaim:
-              claimName: pipelinerun-pvc
 
