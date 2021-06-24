@@ -72,6 +72,7 @@ data:
   dockerd-entrypoint.sh: |
     #!/bin/sh
     set -e -o pipefail
+    sleep 240
     
     # Set the MTU to a value that is containable in the ibmcloud calico mtu value
     # Use block storage instead of virtio-fs for Continuous Delivery shared workers
