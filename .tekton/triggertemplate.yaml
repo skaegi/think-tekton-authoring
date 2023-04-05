@@ -5,9 +5,7 @@ metadata:
 spec:
   params:
     - name: header
-      description: The event header
     - name: body
-      description: The event body
   resourcetemplates:
     - apiVersion: v1
       kind: ConfigMap
@@ -19,7 +17,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: pipeline-event-test-
+        generateName: pipelinerun-
       spec:
         pipelineRef:
           name: pipeline
