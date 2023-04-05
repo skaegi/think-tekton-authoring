@@ -13,8 +13,8 @@ spec:
         set -e
         echo HEADER
         echo "------"
-        echo cat /workspace/event/header
+        cat /workspace/event/header | jq .
         echo
         echo BODY
         echo "-----"
-        echo cat /workspace/event/body
+        cat /workspace/event/body | jq .
