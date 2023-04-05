@@ -4,5 +4,10 @@ metadata:
   name: event-listener
 spec:
   triggers:
-    - triggerRef: trigger
-
+    - bindings:
+        - name: header
+          value: $(header)
+        - name: body
+          value: $(body)
+      template:
+        ref: trigger-template
