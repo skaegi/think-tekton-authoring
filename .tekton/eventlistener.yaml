@@ -10,4 +10,4 @@ spec:
         - name: body
           value: $(body)
       template:
-        ref: trigger-template2
+        ref: trigger-template
