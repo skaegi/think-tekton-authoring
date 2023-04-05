@@ -18,8 +18,9 @@ spec:
         body: $(tt.params.body)
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
+      metadata:
+        generateName: pipeline-event-test-
       spec:
-        name: event-payload-test
         pipelineRef:
           name: pipeline
         workspaces:
