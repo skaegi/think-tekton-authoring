@@ -10,4 +10,25 @@ spec:
         - name: body
           value: $(body)
       template:
-        ref: trigger-template
+        params:
+          - name: header
+          - name: body
+        resourcetemplates:
+          - apiVersion: v1
+            kind: ConfigMap
+            metadata:
+              name: event-$(uid)
+            data:
+              header: $(tt.params.header)
+              body: $(tt.params.body)
+          - apiVersion: tekton.dev/v1beta1
+            kind: PipelineRun
+            metadata:
+              generateName: pipeline-event-test-
+            spec:
+              pipelineRef:
+                name: pipeline
+              workspaces:
+                - name: event
+                  configmap:
+                    name: event-$(uid)
